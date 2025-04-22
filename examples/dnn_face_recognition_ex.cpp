@@ -117,7 +117,7 @@ int main(int argc, char** argv) try
         auto shape = sp(img, face);
         matrix<rgb_pixel> face_chip;
         extract_image_chip(img, get_face_chip_details(shape,150,0.25), face_chip);
-        faces.push_back(move(face_chip));
+        faces.push_back(std::move(face_chip));
         // Also put some boxes on the faces so we can see that the detector is finding
         // them.
         win.add_overlay(face);

@@ -489,8 +489,8 @@ try
         while (images.size() < trainer.get_mini_batch_size())
         {
             train_data.dequeue(temp);
-            images.push_back(move(temp.first));
-            bboxes.push_back(move(temp.second));
+            images.push_back(std::move(temp.first));
+            bboxes.push_back(std::move(temp.second));
         }
         trainer.train_one_step(images, bboxes);
     };
